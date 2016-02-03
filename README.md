@@ -8,7 +8,7 @@
 
 ## Overview
 
-[Devise] gives you basically everything you need to solve the problem of authentication. [CanCan] offers simple authorization model. In this lesson, we're going to look at using the role pattern for authentication.
+[Devise] gives you basically everything you need to solve the problem of authentication. [CanCanCan] offers a simple authorization model. In this lesson, we're going to look at using the role pattern for authorization.
 
 ## What's a role?
 
@@ -19,9 +19,9 @@ Here's how they're defined and what they can do:
    * guests can read posts
    * normal users can do everything guests can do. They can also create posts and edit their own posts.
    * moderators can do all that, and edit and delete the posts of other users.
-   * administrators can do anything.
+   * administrators can do everything.
 
-Roles are a way to express these different kinds of user within the `User` model, then use it for authentication.
+Roles are a way to express these different kinds of user within the `User` model, then use it for authorization.  Devise allows us to authenticate WHO you are, and devise's roles allow us to say given what KIND of user you are, what you are authorized to do.
 
 ## Using roles
 
@@ -43,7 +43,7 @@ And ActiveRecord will translate that into:
 
 As you can see, enums are stored as integers in the database. The list of allowable values, and their conversion into symbols, happens in Ruby.
 
-What about guests? We can detect whether a `User` is written to the database by calling `persisted?`, which will catch user objects which have been created, perhaps filled out in a `/signup` route, but not yet saved and validated. These users should be guests.
+What about guests, or users who are either not logged in or not signed up for our service at all? We can detect whether a `User` is written to the database by calling `persisted?`, which will catch user objects which have been created, perhaps filled out in a `/signup` route, but not yet saved and validated. These users should be guests.
 
 Our `User` model updates like so,
 
@@ -56,7 +56,7 @@ Our `User` model updates like so,
 
 Note: `current_user.role` will never return `'guest'` with this approach, since being a guest is not technically a role.
 
-The last problem we need to address is what happens if we call `current_user.guest?` and `current_user` is `nil` because nobody is currently signed in. We can address that like so:
+Devise's current_user method will always return us the user object for the currently logged in user.  What happens if we call `current_user.guest?` and `current_user` is `nil` because nobody is currently signed in. We can address that like so:
 
     class NilClass
       def guest?
@@ -84,7 +84,7 @@ So use your discretion.
 
 ## Using the pattern
 
-You can use this pattern whether you're just doing authorization checks in your controllers, or using a framework like CanCan.
+You can use this pattern whether you're just doing authorization checks in your controllers, or using a framework like CanCanCan.
 
 Using it bare in the controller,
 
@@ -100,7 +100,7 @@ Using it bare in the controller,
     end
 
 
-In a `CanCan` ability,
+In a `CanCanCan` ability, we use the role (What type of user you are) to determine what you are authorized to do.
 
     class Ability
       include CanCan::ability
@@ -121,12 +121,15 @@ In a `CanCan` ability,
 
 Note how the flow of the initializer creates cascading permissions. Since our permissions model is cascading—each new level of user can do everything the previous level can do, and then more—we start at the least-privileged user and add in the permissions for each level, returning when we reach the user's permission level.
 
+## Conclusion
+Roles sit somewhere between authorization and authentication.  By pre-defining what type of user each user is, and what each type of user is authorized to do, we can use roles to say who is allowed to do what.
+
 ## Resources
 
   * [ActiveRecord enum][ar_enum]
-  * [CanCan]
+  * [CanCanCan]
   * [Devise]
 
 [ar_enum]: http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html
-[CanCan]: https://github.com/ryanb/cancan
+[CanCanCan]: https://github.com/CanCanCommunity/cancancan
 [Devise]: https://github.com/plataformatec/devise
