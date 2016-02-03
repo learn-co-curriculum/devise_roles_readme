@@ -84,7 +84,7 @@ So use your discretion.
 
 ## Using the pattern
 
-You can use this pattern whether you're just doing authorization checks in your controllers, or using a framework like CanCan.
+You can use this pattern whether you're just doing authorization checks in your controllers, or using a framework like CanCanCan.
 
 Using it bare in the controller,
 
@@ -127,9 +127,9 @@ Roles sit somewhere between authorization and authentication.  By pre-defining w
 ## Resources
 
   * [ActiveRecord enum][ar_enum]
-  * [CanCan]
+  * [CanCanCan]
   * [Devise]
 
 [ar_enum]: http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html
-[CanCanCan]: https://github.com/ryanb/cancan
+[CanCanCan]: https://github.com/CanCanCommunity/cancancan
 [Devise]: https://github.com/plataformatec/devise
