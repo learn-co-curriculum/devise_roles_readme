@@ -21,7 +21,7 @@ Here's how they're defined and what they can do:
    * moderators can do all that, and edit and delete the posts of other users.
    * administrators can do everything.
 
-Roles are a way to express these different kinds of users within the `User` model, then use it for authorization.  Devise allows us to authenticate WHO you are, and devise's roles allow us to say given what KIND of user you are, what you are authorized to do.
+Roles are a way to express these different kinds of users within the `User` model, then use it for authorization.  Devise allows us to authenticate WHO you are, and devise's roles allow us to say (given what KIND of user you are) what you are authorized to do.
 
 ## Using roles
 
@@ -135,3 +135,5 @@ Roles sit somewhere between authorization and authentication.  By pre-defining w
 [Devise]: https://github.com/plataformatec/devise
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_roles_readme'>Devise Roles </a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/devise_roles_readme'>Devise Roles </a> on Learn.co and start learning to code for free.</p>
