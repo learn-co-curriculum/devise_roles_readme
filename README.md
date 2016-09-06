@@ -21,7 +21,7 @@ Here's how they're defined and what they can do:
    * moderators can do all that, and edit and delete the posts of other users.
    * administrators can do everything.
 
-Roles are a way to express these different kinds of users within the `User` model, then use it for authorization.  Devise allows us to authenticate WHO you are, and devise's roles allow us to say given what KIND of user you are, what you are authorized to do.
+Roles are a way to express these different kinds of users within the `User` model, then use it for authorization.  Devise allows us to authenticate WHO you are, and devise's roles allow us to say (given what KIND of user you are) what you are authorized to do.
 
 ## Using roles
 
