@@ -88,7 +88,7 @@ You can use this pattern whether you're just doing authorization checks in your 
 
 Using it bare in the controller,
 
-    class Post
+    class PostsController < ApplicationController
       def update
         @post = Post.find(params[:id])
         return head(:forbidden) unless current_user.admin? ||
