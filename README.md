@@ -135,5 +135,3 @@ Roles sit somewhere between authorization and authentication.  By pre-defining w
 [Devise]: https://github.com/plataformatec/devise
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_roles_readme'>Devise Roles </a> on Learn.co and start learning to code for free.</p>
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/devise_roles_readme'>Devise Roles </a> on Learn.co and start learning to code for free.</p>
