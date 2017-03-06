@@ -43,7 +43,7 @@ And ActiveRecord will translate that into:
 
 As you can see, enums are stored as integers in the database. The list of allowable values, and their conversion into symbols, happens in Ruby.
 
-What about guests, or users who are either not logged in or not signed up for our service at all? We can detect whether a `User` is written to the database by calling `persisted?`, which will catch user objects which have been created, perhaps filled out in a `/signup` route, but not yet saved and validated. These users should be guests.
+What about guests, or users who are either not logged in or not signed up for our service at all? We can detect whether a `User` is written to the database by calling `persisted?`, which will catch user objects that have been created, perhaps filled out in a `/signup` route, but not yet saved and validated. These users should be guests.
 
 Our `User` model updates like so,
 
