@@ -56,7 +56,7 @@ Our `User` model updates like so,
 
 Note: `current_user.role` will never return `'guest'` with this approach, since being a guest is not technically a role.
 
-Devise's current_user method will always return to us the user object for the currently logged in user.  What happens if we call `current_user.guest?` and `current_user` is `nil` because nobody is currently signed in. We can address that like so:
+Devise's current_user method will always return to us the user object for the currently logged in user.  What happens if we call `current_user.guest?` and `current_user` is `nil` because nobody is currently signed in? We can address that like so:
 
     class NilClass
       def guest?
