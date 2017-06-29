@@ -93,7 +93,7 @@ Using it bare in the controller,
         @post = Post.find(params[:id])
         return head(:forbidden) unless current_user.admin? ||
 	       			       current_user.moderator? ||
-				       current_user.try(:id) == @post.id
+				       current_user.try(:id) == @post.owner_id
         @post.update(post_params)
       end
       # more down here
