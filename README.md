@@ -56,7 +56,7 @@ user.role == 2
 ```
 
 As you can see, `enum`s are stored as integers in the database. The list of
-allowable values, and their conversion into symbols, happens in Ruby.
+allowable values, and their conversion into symbols happens in Ruby.
 
 What about **guests**, or users who are either not logged in or not signed up
 for our service at all? We can detect whether a `User` is written to the
@@ -81,7 +81,7 @@ being a guest is not _technically_ a role.
 ## `current_user` and `nil`
 
 Devise's `current_user` method will always return to us the user object for the
-currently logged-in user, ***provided that there is a currently logged-in
+currently logged-in user &mdash; ***provided that there is a currently logged-in
 user***.
 
 That's really important. If the agent visiting our site is not logged in and we
@@ -102,14 +102,14 @@ else
 end
 ```
 
-Generally, as programmers we want to start feeling a little bit uncomfortable
+Generally, as programmers, we want to start feeling a little bit uncomfortable
 when we see nested conditionals. In order to make sure we don't have any
 accidental outcomes, we have to cover `2` raised to the power of the number of
 conditionals. In the example above, because there are two conditionals (`if`)
 and every conditional has a `true`/`false` pair, then we have to cover
 `2<sup>2</sup>` or `4` code paths.
 
-In Rails there are a couple of ways to keep our conditional to only two paths.
+In Rails, there are a couple of ways to keep our conditional to only two paths.
 One way would be to require that this action will only execute when there is a
 `current_user`. This can be done with Rails' [before action]. If this filter
 were in place, we could remove the outermost `if`.
