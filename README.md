@@ -207,5 +207,3 @@ we can use roles to say who is allowed to do what.
 [try]: https://guides.rubyonrails.org/active_support_core_extensions.html#try
 [before action]: https://guides.rubyonrails.org/action_controller_overview.html#filters
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_roles_readme'>Devise Roles </a> on Learn.co and start learning to code for free.</p>
-
